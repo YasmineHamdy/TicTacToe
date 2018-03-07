@@ -22,10 +22,12 @@ import javafx.stage.Stage;
 public class RequestIPPageBase extends AnchorPane {
 
     protected final Text text;
+     protected final Text text2;
     protected final Button okButton;
     protected final Button backButton;
     protected final Button exitButton;
     protected final TextField textField;
+     protected final TextField textField2;
     protected final ColorAdjust colorAdjust;
     protected final ColorAdjust colorAdjust0;
     protected final ColorAdjust colorAdjust1;
@@ -33,10 +35,12 @@ public class RequestIPPageBase extends AnchorPane {
     public RequestIPPageBase(Stage primaryStage) {
 
         text = new Text();
+        text2 = new Text();
         okButton = new Button();
         backButton = new Button();
         exitButton = new Button();
         textField = new TextField();
+        textField2 = new TextField();
         colorAdjust = new ColorAdjust();
         colorAdjust0 = new ColorAdjust();
         colorAdjust1 = new ColorAdjust();
@@ -59,6 +63,7 @@ public class RequestIPPageBase extends AnchorPane {
         colorAdjust1.setHue(-0.02);
         colorAdjust1.setSaturation(1.0);
         text.setEffect(colorAdjust);
+     
         
         
         backButton.setLayoutX(20.0);
@@ -98,7 +103,7 @@ public class RequestIPPageBase extends AnchorPane {
         {   
             try {
                 //primaryStage.setScene(new Scene(new TicTacToeGamePageBase(1,null,textField.getText())));
-                 Socket s=new Socket(textField.getText(),9999);
+                 Socket s=new Socket(textField.getText(),Integer.parseInt(textField2.getText()));
                  NetworkPlayer player=new NetworkPlayer(1,false,PName,s);  
                  DataOutputStream dos=new DataOutputStream(s.getOutputStream());
                  DataInputStream dis=new DataInputStream(s.getInputStream());
@@ -138,15 +143,34 @@ public class RequestIPPageBase extends AnchorPane {
         });
 
         textField.setLayoutX(230.0);
-        textField.setLayoutY(200.0);
+        textField.setLayoutY(180.0);
         textField.setStyle("-fx-background-color: black;fx-text-inner-color: yellow;");
         textField.setFont(new Font("System Italic", 22.0));
+        
+           
+        text2.setFill(javafx.scene.paint.Color.valueOf("yellow"));
+        text2.setLayoutX(200.0);
+        text2.setLayoutY(270.0);
+        text2.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
+        text2.setText("please enter The Port");
+        text2.setFont(new Font("DejaVu Sans Oblique", 36.0));
+        colorAdjust1.setBrightness(-0.2);
+        colorAdjust1.setContrast(1.0);
+        colorAdjust1.setHue(-0.02);
+        colorAdjust1.setSaturation(1.0);
+        text2.setEffect(colorAdjust);
+        
+        textField2.setLayoutX(230.0);
+        textField2.setLayoutY(300.0);
+        textField2.setStyle("-fx-background-color: black;fx-text-inner-color: yellow;");
+        textField2.setFont(new Font("System Italic", 22.0));
 
         getChildren().add(text);
+         getChildren().add(text2);
         getChildren().add(okButton);
         getChildren().add(backButton);
         getChildren().add(exitButton);
         getChildren().add(textField);
-
+          getChildren().add(textField2);
     }
 }

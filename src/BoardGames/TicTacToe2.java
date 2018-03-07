@@ -85,7 +85,7 @@ public class TicTacToe2 {
             out.print(player2.moves.toString()+";");
             out.print(player1.name+";");
             out.print(player2.name+";");
-            out.print("Winner: "+(n==0?player1.name:(n==1?player2.name:"no winner")));
+            out.println((n==0?player1.name:(n==1?player2.name:"no winner")));
             
             out.println("}");
             //more code

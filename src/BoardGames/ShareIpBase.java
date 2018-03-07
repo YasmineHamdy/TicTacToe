@@ -26,6 +26,8 @@ public  class ShareIpBase extends AnchorPane {
     protected final Pane pane;
     protected final Label label;
     protected final Label label0;
+     protected final Label label1;
+    protected final Label label2;
     protected final Button button;
     protected final Stage primaryStage;
      protected static String playerName="";
@@ -36,6 +38,8 @@ public  class ShareIpBase extends AnchorPane {
         pane = new Pane();
         label = new Label();
         label0 = new Label();
+        label1 = new Label();
+        label2 = new Label();
         button = new Button();
         this.primaryStage=primaryStage;
         
@@ -60,6 +64,19 @@ public  class ShareIpBase extends AnchorPane {
         label0.setText("Label");
         label0.setText(ip);
         
+        label1.setLayoutX(21.0);
+        label1.setLayoutY(70);
+        label1.setPrefHeight(17.0);
+        label1.setPrefWidth(314.0);
+        label1.setText("Port");
+
+        label2.setLayoutX(160.0);
+        label2.setLayoutY(80);
+        label2.setPrefHeight(17.0);
+        label2.setPrefWidth(128.0);
+      
+        label0.setText(ip);
+        
         button.setLayoutX(409.0);
         button.setLayoutY(75.0);
         button.setMnemonicParsing(false);
@@ -69,6 +86,8 @@ public  class ShareIpBase extends AnchorPane {
 
         pane.getChildren().add(label);
         pane.getChildren().add(label0);
+        pane.getChildren().add(label1);
+        pane.getChildren().add(label2);
         pane.getChildren().add(button);
         getChildren().add(pane);
          InServer();
@@ -76,7 +95,8 @@ public  class ShareIpBase extends AnchorPane {
      public void InServer()
     {
         try {
-            this.server = new ServerSocket(9999,1,InetAddress.getByName( InetAddress.getLocalHost().getHostAddress()));
+            this.server = new ServerSocket(0,1,InetAddress.getByName( InetAddress.getLocalHost().getHostAddress()));
+           label2.setText(""+this.server.getLocalPort());
             new StartGame();
         } catch (UnknownHostException ex) {
             Logger.getLogger(ShareIpBase.class.getName()).log(Level.SEVERE, null, ex);
@@ -103,6 +123,7 @@ public  class ShareIpBase extends AnchorPane {
                  DataInputStream dis=new DataInputStream(s.getInputStream());
                  String name=dis.readUTF();
                  dos.writeUTF(intiatePlayer.name);
+
                  NetworkPlayer Player=new NetworkPlayer(1,false,name,s);
                 Platform.runLater(()->primaryStage.setScene(new Scene(new TicTacToeGamePageBase(primaryStage,0,intiatePlayer,Player))));
             } catch (IOException ex) {
