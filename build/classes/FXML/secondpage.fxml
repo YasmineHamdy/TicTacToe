@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="436.0" prefWidth="600.0" style="-fx-background-color: black; -fx-background-radius: 25; -fx-padding: 10;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9">
+   <children>
+      <Button layoutX="120.0" layoutY="234.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="346.0" style="-fx-background-insets: 0,1,2,3,0; -fx-background-radius: 305;" text="VS Computer">
+         <effect>
+            <ColorAdjust brightness="-0.2" contrast="1.0" hue="0.31" saturation="1.0" />
+         </effect>
+         <font>
+            <Font name="DejaVu Serif Italic" size="25.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="150.0" fitWidth="433.0" layoutX="84.0" layoutY="44.0" opacity="0.81" pickOnBounds="true">
+         <image>
+            <Image url="@tttmarqlrg.gif" />
+         </image>
+      </ImageView>
+      <Button layoutX="120.0" layoutY="290.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="346.0" style="-fx-background-insets: 0,1,2,3,0; -fx-background-radius: 305;" text="VS Local Player">
+         <effect>
+            <ColorAdjust brightness="-0.2" contrast="1.0" hue="0.31" saturation="1.0" />
+         </effect>
+         <font>
+            <Font name="DejaVu Serif Italic" size="25.0" />
+         </font>
+      </Button>
+      <Button layoutX="120.0" layoutY="347.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="346.0" style="-fx-background-insets: 0,1,2,3,0; -fx-background-radius: 305;" text="VS Network Player">
+         <effect>
+            <ColorAdjust brightness="-0.2" contrast="1.0" hue="0.31" saturation="1.0" />
+         </effect>
+         <font>
+            <Font name="DejaVu Serif Italic" size="25.0" />
+         </font>
+      </Button>
+      <Button layoutX="553.0" layoutY="20.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="26.0" style="-fx-background-insets: 0,1,2,3,0; -fx-background-radius: 305;">
+         <effect>
+            <ColorAdjust brightness="-0.2" contrast="1.0" hue="0.31" saturation="1.0" />
+         </effect>
+         <font>
+            <Font name="DejaVu Serif Italic" size="10.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

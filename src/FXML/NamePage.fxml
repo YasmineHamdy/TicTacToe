@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black; -fx-background-radius: 25;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9">
+   <children>
+      <Text fill="#b28d20" layoutX="75.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="please enter your name" wrappingWidth="462.3671875">
+         <font>
+            <Font name="DejaVu Sans Oblique" size="36.0" />
+         </font>
+      </Text>
+      <Button layoutX="527.0" layoutY="332.0" mnemonicParsing="false" text="Ok" />
+      <Button layoutX="40.0" layoutY="332.0" mnemonicParsing="false" text="Back" />
+      <Button layoutX="554.0" layoutY="24.0" mnemonicParsing="false" />
+      <TextField layoutX="230.0" layoutY="200.0" style="-fx-background-color: black;">
+         <font>
+            <Font name="System Italic" size="22.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

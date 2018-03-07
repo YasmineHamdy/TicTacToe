@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="139.0" prefWidth="502.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1">
+   <children>
+      <Pane layoutX="3.0" prefHeight="136.0" prefWidth="496.0">
+         <children>
+            <Label layoutX="80.0" layoutY="31.0" prefHeight="17.0" prefWidth="337.0" text="IP is Wrong Check it and try to enter it again" />
+            <Button layoutX="365.0" layoutY="95.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="ok" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

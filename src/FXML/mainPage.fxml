@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="474.0" prefWidth="725.0" style="-fx-background-color: black; -fx-background-radius: 25; -fx-padding: 10;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="698.0" layoutY="14.0" minWidth="34.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="33.0" style="-fx-background-insets: 0,1,2,3,0; -fx-background-radius: 305; -fx-background-color: yellow;">
+         
+         <effect>
+            <ColorAdjust brightness="0.44" contrast="1.0" />
+         </effect>
+      </Button>
+      <Button blendMode="SRC_ATOP" cache="true" layoutX="172.0" layoutY="294.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="441.0" style="-fx-background-insets: 0,1,2,3,0; -fx-background-radius: 30; -fx-padding: 10 20 10 20; -fx-font-size: 25; -fx-background-color: yellow;" text="Tic Tac Toe" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="DejaVu Serif Italic" size="24.0" />
+         </font>
+         <effect>
+            <ColorAdjust brightness="-0.2" contrast="1.0" hue="-0.02" saturation="1.0" />
+         </effect>
+      </Button>
+      <Button blendMode="SRC_ATOP" cache="true" layoutX="172.0" layoutY="371.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="441.0" style="-fx-background-insets: 0,1,2,3,0; -fx-background-radius: 30; -fx-padding: 10 20 10 20; -fx-font-size: 25; -fx-background-color: yellow;" text="Snake and Ladder" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="DejaVu Serif Italic" size="24.0" />
+         </font>
+         <effect>
+            <ColorAdjust brightness="-0.2" contrast="1.0" hue="-0.02" saturation="1.0" />
+         </effect>
+      </Button>
+      <ImageView fitHeight="230.0" fitWidth="659.0" layoutX="56.0" layoutY="24.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../../Desktop/TGL_logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
