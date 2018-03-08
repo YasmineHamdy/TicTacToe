@@ -15,16 +15,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-/**
- *
- * @author FIGHTER
- */
 public class TicTacToe2 {
     NetworkPlayer player1;
     NetworkPlayer player2;
     String Winner="";
     int movesLeft;
     boolean GameEnded=false;
+    DB.db db=new DB.db();
      int [][] winningStates = {
                                 {0, 1, 2},
                                 {6, 4, 5},
@@ -75,24 +72,31 @@ public class TicTacToe2 {
         stage.show();  
           s.button0.setOnMousePressed(ev->{
           Platform.runLater(()->{ stage.close();});
-              try(FileWriter fw = new FileWriter("myGames.txt", true);
-            BufferedWriter bw = new BufferedWriter(fw);
-        PrintWriter out = new PrintWriter(bw))
-        {
-            out.println("{");
-            
-            out.print(player1.moves.toString()+";");
-            out.print(player2.moves.toString()+";");
-            out.print(player1.name+";");
-            out.print(player2.name+";");
-            out.println((n==0?player1.name:(n==1?player2.name:"no winner")));
-            
-            out.println("}");
-            //more code
-        } catch (IOException e) {
-            //exception handling left as an exercise for the reader
-                    System.out.println("error");
-        }
+//              try(FileWriter fw = new FileWriter("myGames.txt", true);
+//            BufferedWriter bw = new BufferedWriter(fw);
+//        PrintWriter out = new PrintWriter(bw))
+//        {
+//            out.println("{");
+//            
+//            out.print(player1.moves.toString()+";");
+//            out.print(player2.moves.toString()+";");
+//            out.print(player1.name+";");
+//            out.print(player2.name+";");
+//            out.println((n==0?player1.name:(n==1?player2.name:"no winner")));
+//            
+//            out.println("}");
+//            //more code
+//        } catch (IOException e) {
+//            //exception handling left as an exercise for the reader
+//                    System.out.println("error");
+//        }
+          String[] row=new String[5];
+          row[0]=player1.moves.toString();
+          row[1]=player2.moves.toString();
+          row[2]=player1.name;
+          row[3]=player2.name;
+          row[4]=n==0?player1.name:(n==1?player2.name:"no winner");
+          db.write(row);
        });
        });
      

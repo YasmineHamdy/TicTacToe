@@ -97,7 +97,6 @@ public class TicTacToeGamePageBase extends AnchorPane {
     public static boolean secondtTurn = false;
     
     public TicTacToeGamePageBase(Stage primaryStage,int mode,PlayerInterface player,PlayerInterface player2) {
-            System.out.println(mode);
         
         label8 = new Label();
         exitButton = new Button();
@@ -1270,7 +1269,6 @@ public class TicTacToeGamePageBase extends AnchorPane {
                     int data;
                   try {
                       data = dis.readInt();
-                      System.out.println(data);
                       if(Double.isNaN((double)data))
                       {
                            if(p.turn)
