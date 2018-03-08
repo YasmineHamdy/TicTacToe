@@ -57,7 +57,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
     protected final Text player1Text;
     protected final Text player2Text;
     protected final ColorAdjust colorAdjust1;
-    
+
     protected final ImageView imagecell0ViewO;
     protected final ImageView imagecell0ViewX;
     protected final ImageView imagecell1ViewO;
@@ -90,14 +90,14 @@ public class TicTacToeGamePageBase extends AnchorPane {
     NetworkPlayer  p2;
     TicTacToe2 startGame;
     StartGame sg;
-    
+
     public static int pos = -1;
     public static boolean enabled = true;
     public static boolean firstTurn = false;
     public static boolean secondtTurn = false;
-    
+
     public TicTacToeGamePageBase(Stage primaryStage,int mode,PlayerInterface player,PlayerInterface player2) {
-        
+
         label8 = new Label();
         exitButton = new Button();
         backButton = new Button();
@@ -125,7 +125,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
         player2Text = new Text();
         colorAdjust1 = new ColorAdjust();
         colorAdjust2 = new ColorAdjust();
-        
+
         imagecell0ViewX = new ImageView();
         imagecell0ViewO = new ImageView();
         imagecell1ViewX = new ImageView();
@@ -149,8 +149,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
         setPrefHeight(474.0);
         setPrefWidth(725.0);
         setStyle("-fx-background-color: black; -fx-background-radius: 25; -fx-padding: 10;");
-        
-        
+
+
         exitButton.setLayoutX(698.0);
         exitButton.setLayoutY(14.0);
         exitButton.setMinWidth(34.0);
@@ -174,7 +174,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
                 } catch (IOException ex) {
                     Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
             }
             else if(mode==1)
             {
@@ -199,14 +199,13 @@ public class TicTacToeGamePageBase extends AnchorPane {
         backButton.setEffect(colorAdjust);
 
         gridPane.setGridLinesVisible(true);
-        gridPane.setHgap(10.0);
         gridPane.setLayoutX(127.0);
         gridPane.setLayoutY(158.0);
         gridPane.setPrefHeight(266.0);
         gridPane.setPrefWidth(485.0);
-        gridPane.setVgap(10.0);
-        
-        
+        gridPane.setStyle("-fx-background-color: yellow;");
+
+
 
         columnConstraints.setHgrow(javafx.scene.layout.Priority.SOMETIMES);
         columnConstraints.setMaxWidth(235.0);
@@ -235,9 +234,9 @@ public class TicTacToeGamePageBase extends AnchorPane {
         rowConstraints1.setPrefHeight(30.0);
         rowConstraints1.setVgrow(javafx.scene.layout.Priority.SOMETIMES);
         gridPane.setCursor(Cursor.HAND);
-        
-        
-        
+
+
+
         File fo = new File("./images/o.png");
         Image imgo = new Image(fo.toURI().toString());
         File fx = new File("./images/x.png");
@@ -245,71 +244,71 @@ public class TicTacToeGamePageBase extends AnchorPane {
         imagecell0ViewX.setFitHeight(80.0);
         imagecell0ViewX.setFitWidth(140.0);
         imagecell0ViewX.setImage(imgx);
-        
+
         imagecell0ViewO.setFitHeight(80.0);
         imagecell0ViewO.setFitWidth(140.0);
         imagecell0ViewO.setImage(imgo);
-        
+
         imagecell1ViewX.setFitHeight(80.0);
         imagecell1ViewX.setFitWidth(140.0);
         imagecell1ViewX.setImage(imgx);
-        
+
         imagecell1ViewO.setFitHeight(80.0);
         imagecell1ViewO.setFitWidth(140.0);
         imagecell1ViewO.setImage(imgo);
-        
+
         imagecell2ViewX.setFitHeight(80.0);
         imagecell2ViewX.setFitWidth(140.0);
         imagecell2ViewX.setImage(imgx);
-        
+
         imagecell2ViewO.setFitHeight(80.0);
         imagecell2ViewO.setFitWidth(140.0);
         imagecell2ViewO.setImage(imgo);
-        
+
         imagecell3ViewX.setFitHeight(80.0);
         imagecell3ViewX.setFitWidth(140.0);
         imagecell3ViewX.setImage(imgx);
-        
+
         imagecell3ViewO.setFitHeight(80.0);
         imagecell3ViewO.setFitWidth(140.0);
         imagecell3ViewO.setImage(imgo);
-        
+
         imagecell4ViewX.setFitHeight(80.0);
         imagecell4ViewX.setFitWidth(140.0);
         imagecell4ViewX.setImage(imgx);
-        
+
         imagecell4ViewO.setFitHeight(80.0);
         imagecell4ViewO.setFitWidth(140.0);
         imagecell4ViewO.setImage(imgo);
-       
+
         imagecell5ViewX.setFitHeight(80.0);
         imagecell5ViewX.setFitWidth(140.0);
         imagecell5ViewX.setImage(imgx);
-        
+
         imagecell5ViewO.setFitHeight(80.0);
         imagecell5ViewO.setFitWidth(140.0);
         imagecell5ViewO.setImage(imgo);
-        
+
         imagecell6ViewX.setFitHeight(80.0);
         imagecell6ViewX.setFitWidth(140.0);
         imagecell6ViewX.setImage(imgx);
-        
+
         imagecell6ViewO.setFitHeight(80.0);
         imagecell6ViewO.setFitWidth(140.0);
         imagecell6ViewO.setImage(imgo);
-        
+
         imagecell7ViewX.setFitHeight(80.0);
         imagecell7ViewX.setFitWidth(140.0);
         imagecell7ViewX.setImage(imgx);
-        
+
         imagecell7ViewO.setFitHeight(80.0);
         imagecell7ViewO.setFitWidth(140.0);
         imagecell7ViewO.setImage(imgo);
-        
+
         imagecell8ViewX.setFitHeight(80.0);
         imagecell8ViewX.setFitWidth(140.0);
         imagecell8ViewX.setImage(imgx);
-        
+
         imagecell8ViewO.setFitHeight(80.0);
         imagecell8ViewO.setFitWidth(140.0);
         imagecell8ViewO.setImage(imgo);
@@ -336,9 +335,9 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                        System.out.println("winnner");
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(0);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -351,7 +350,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
                       p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }         
+                 }
              }
              else if( mode==1 &&p2.turn &&this.startGame.CheckPlace(0)&& !this.startGame.GameEnded)
              {
@@ -362,16 +361,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                        if(p.turn)
                                 {
-                                    startGame.player1.moves.add(0);   
+                                    startGame.player1.moves.add(0);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(0);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -384,21 +383,21 @@ public class TicTacToeGamePageBase extends AnchorPane {
                       p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }  
+                 }
              }
              else if(mode==2)
              {
                 if(Globals.enabled){
                         TicTacToeGamePageBase.pos=0;
                         Globals.pos=0;
-                        Globals.enabled=false;   
+                        Globals.enabled=false;
                 }
-            
-             
+
+
              }
-         
+
         });
-        
+
 
         GridPane.setColumnIndex(cell3, 2);
         GridPane.setRowIndex(cell3, 0);
@@ -415,16 +414,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                        if(p.turn)
                                 {
-                                    startGame.player1.moves.add(3);   
+                                    startGame.player1.moves.add(3);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(3);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -437,7 +436,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
                       p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }         
+                 }
              }
              else if( mode==1 &&p2.turn &&this.startGame.CheckPlace(3)&&!this.startGame.GameEnded)
              {
@@ -448,16 +447,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                       if(p.turn)
                                 {
-                                    startGame.player1.moves.add(3);   
+                                    startGame.player1.moves.add(3);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(3);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -470,23 +469,23 @@ public class TicTacToeGamePageBase extends AnchorPane {
                       p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }  
+                 }
              }
                else if(mode==2)
              {
                 if(Globals.enabled){
                         TicTacToeGamePageBase.pos=3;
                         Globals.pos=3;
-                        Globals.enabled=false;   
+                        Globals.enabled=false;
                 }
-            
-             
+
+
              }
         });
 
 
         GridPane.setColumnIndex(cell6, 1);
-        GridPane.setRowIndex(cell6, 0);        
+        GridPane.setRowIndex(cell6, 0);
         cell6.setPrefHeight(93.0);
         cell6.setId("cell6");
         cell6.applyCss();
@@ -500,16 +499,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                       if(p.turn)
                                 {
-                                    startGame.player1.moves.add(6);   
+                                    startGame.player1.moves.add(6);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(6);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -517,14 +516,14 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
-                                    
+
                                 }
                      p.turn=(p.turn)?false:true;
                       p2.turn=(p2.turn)?false:true;
-                      
+
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }         
+                 }
              }
              else if( mode==1 &&p2.turn &&this.startGame.CheckPlace(6)&&!this.startGame.GameEnded)
              {
@@ -535,16 +534,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                       if(p.turn)
                                 {
-                                    startGame.player1.moves.add(6);   
+                                    startGame.player1.moves.add(6);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(6);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -557,23 +556,23 @@ public class TicTacToeGamePageBase extends AnchorPane {
                       p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }  
+                 }
              }
                 else if(mode==2)
              {
                 if(Globals.enabled){
                         TicTacToeGamePageBase.pos=6;
                         Globals.pos=6;
-                        Globals.enabled=false;   
+                        Globals.enabled=false;
                 }
-          
-             
+
+
              }
-           
+
         });
 
         GridPane.setColumnIndex(cell1, 0);
-        GridPane.setRowIndex(cell1, 1);  
+        GridPane.setRowIndex(cell1, 1);
         cell1.setPrefHeight(82.0);
         cell1.setId("cell1");
         cell1.applyCss();
@@ -587,16 +586,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                       if(p.turn)
                                 {
-                                    startGame.player1.moves.add(1);   
+                                    startGame.player1.moves.add(1);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(1);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -609,7 +608,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
                       p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }         
+                 }
              }
              else if( mode==1 &&p2.turn &&this.startGame.CheckPlace(1)&&!this.startGame.GameEnded)
              {
@@ -620,16 +619,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                       if(p.turn)
                                 {
-                                    startGame.player1.moves.add(1);  
+                                    startGame.player1.moves.add(1);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(1);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -642,18 +641,18 @@ public class TicTacToeGamePageBase extends AnchorPane {
                       p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }  
+                 }
              }
                 else if(mode==2)
              {
-          
+
                 if(Globals.enabled){
                         TicTacToeGamePageBase.pos=1;
                         Globals.pos=1;
-                        Globals.enabled=false;   
+                        Globals.enabled=false;
                 }
-           
-             
+
+
              }
         });
 
@@ -665,7 +664,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
         cell4.setPrefWidth(152.0);
         cell4.addEventHandler(MouseEvent.MOUSE_CLICKED, e ->{
              if((mode==0 &&p.turn &&this.startGame.CheckPlace(4)&&!this.startGame.GameEnded)){
-                
+
                  cell4.setGraphic(imagecell4ViewX);
                  this.startGame.HoldPlace(4);
                 try {
@@ -673,16 +672,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                       if(p.turn)
                                 {
-                                    startGame.player1.moves.add(4);   
+                                    startGame.player1.moves.add(4);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(4);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -695,7 +694,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
                       p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }         
+                 }
              }
              else if( mode==1 &&p2.turn &&this.startGame.CheckPlace(4)&&!this.startGame.GameEnded)
              {
@@ -706,16 +705,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                       if(p.turn)
                                 {
-                                    startGame.player1.moves.add(4);   
+                                    startGame.player1.moves.add(4);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(4);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -728,21 +727,21 @@ public class TicTacToeGamePageBase extends AnchorPane {
                       p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }  
+                 }
              }
                 else if(mode==2)
              {
                 if(Globals.enabled){
                         TicTacToeGamePageBase.pos=4;
                         Globals.pos=4;
-                        Globals.enabled=false;   
+                        Globals.enabled=false;
                 }
-           
+
              }
         });
 
         GridPane.setColumnIndex(cell7, 2);
-        GridPane.setRowIndex(cell7, 1);  
+        GridPane.setRowIndex(cell7, 1);
         cell7.setPrefHeight(93.0);
         cell7.setId("cell7");
         cell7.applyCss();
@@ -756,16 +755,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                       if(p.turn)
                                 {
-                                    startGame.player1.moves.add(7);   
+                                    startGame.player1.moves.add(7);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(7);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -778,7 +777,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
                       p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }         
+                 }
              }
              else if( mode==1 &&p2.turn &&this.startGame.CheckPlace(7)&&!this.startGame.GameEnded)
              {
@@ -789,16 +788,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                       if(p.turn)
                                 {
-                                    startGame.player1.moves.add(7);   
+                                    startGame.player1.moves.add(7);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(7);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -811,22 +810,22 @@ public class TicTacToeGamePageBase extends AnchorPane {
                       p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }  
+                 }
              }
                 else if(mode==2)
              {
                  if(Globals.enabled){
                         TicTacToeGamePageBase.pos=7;
                         Globals.pos=7;
-                        Globals.enabled=false;   
+                        Globals.enabled=false;
                 }
-          
-             
+
+
              }
         });
 
         GridPane.setColumnIndex(cell2, 0);
-        GridPane.setRowIndex(cell2, 2); 
+        GridPane.setRowIndex(cell2, 2);
         cell2.setPrefHeight(93.0);
         cell2.setId("cell2");
         cell2.applyCss();
@@ -840,16 +839,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                       if(p.turn)
                                 {
-                                    startGame.player1.moves.add(2);   
+                                    startGame.player1.moves.add(2);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(2);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -862,7 +861,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
                       p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }         
+                 }
              }
              else if( mode==1 &&p2.turn &&this.startGame.CheckPlace(2)&&!this.startGame.GameEnded)
              {
@@ -873,16 +872,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                       if(p.turn)
                                 {
-                                    startGame.player1.moves.add(2);   
+                                    startGame.player1.moves.add(2);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(2);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -895,17 +894,17 @@ public class TicTacToeGamePageBase extends AnchorPane {
                       p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }  
+                 }
              }
                 else if(mode==2)
              {
                 if(Globals.enabled){
                         TicTacToeGamePageBase.pos=2;
                         Globals.pos=2;
-                        Globals.enabled=false;   
+                        Globals.enabled=false;
                 }
-          
-             
+
+
              }
         });
 
@@ -924,16 +923,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                       if(p.turn)
                                 {
-                                    startGame.player1.moves.add(5);   
+                                    startGame.player1.moves.add(5);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(5);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -946,7 +945,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
                       p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }         
+                 }
              }
              else if( mode==1 &&p2.turn &&this.startGame.CheckPlace(5)&&!this.startGame.GameEnded)
              {
@@ -957,16 +956,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                       if(p.turn)
                                 {
-                                    startGame.player1.moves.add(5);   
+                                    startGame.player1.moves.add(5);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(5);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -979,20 +978,20 @@ public class TicTacToeGamePageBase extends AnchorPane {
                       p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }  
+                 }
              }
                else if(mode==2)
              {
                 if(Globals.enabled){
                         TicTacToeGamePageBase.pos=5;
                         Globals.pos=5;
-                        Globals.enabled=false;   
+                        Globals.enabled=false;
                 }
-           
-             
+
+
              }
         });
-        
+
         GridPane.setColumnIndex(cell8, 2);
         GridPane.setRowIndex(cell8, 2);
         cell8.setPrefHeight(90.0);
@@ -1008,16 +1007,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                       if(p.turn)
                                 {
-                                    startGame.player1.moves.add(8);   
+                                    startGame.player1.moves.add(8);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(8);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -1030,7 +1029,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }         
+                 }
              }
              else if( mode==1 &&p2.turn &&this.startGame.CheckPlace(8)&&!this.startGame.GameEnded)
              {
@@ -1041,16 +1040,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
                      dos.flush();
                       if(p.turn)
                                 {
-                                    startGame.player1.moves.add(8);   
+                                    startGame.player1.moves.add(8);
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(8);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -1063,17 +1062,17 @@ public class TicTacToeGamePageBase extends AnchorPane {
                       p2.turn=(p2.turn)?false:true;
                  } catch (IOException ex) {
                      Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
-                 }  
+                 }
              }
                 else if(mode==2)
              {
                 if(Globals.enabled){
                         TicTacToeGamePageBase.pos=8;
                         Globals.pos=8;
-                        Globals.enabled=false;   
+                        Globals.enabled=false;
                 }
-            
-             
+
+
              }
         });
 
@@ -1116,16 +1115,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
         player2Text.setText("player2");
         player2Text.setFont(new Font("DejaVu Serif Bold", 23.0));
 
-        
-         
+
+
         label8.setLayoutX(265.0);
         label8.setLayoutY(89.0);
         label8.setPrefHeight(17.0);
         label8.setPrefWidth(64.0);
 
         setEffect(colorAdjust1);
-        
-        
+
+
 
         getChildren().add(exitButton);
         getChildren().add(backButton);
@@ -1159,17 +1158,17 @@ public class TicTacToeGamePageBase extends AnchorPane {
                 primaryStage.setY(event.getScreenY() - yOffset);
             }
         });
-        
+
         if(mode==1 || mode==0)
         {
-          
+
             this.ip=ip;
             this.mode=mode;
             this.p=(NetworkPlayer)player;
             this.p2=(NetworkPlayer)player2;
             this.startGame=new TicTacToe2(this.p,this.p2);
             label8.setText("X");
-            
+
         player1Text.setText(startGame.player1.name);
         player2Text.setText(startGame.player2.name);
             connect();
@@ -1191,14 +1190,14 @@ public class TicTacToeGamePageBase extends AnchorPane {
         } catch (IOException ex) {
             Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
         }
-           
-       
+
+
     }
     public void putXOrO(int cellNo,char mode){
         switch(cellNo){
                         case 8:
                                 if(mode=='X')
-                                Platform.runLater(()->cell8.setGraphic(imagecell8ViewX)); 
+                                Platform.runLater(()->cell8.setGraphic(imagecell8ViewX));
                                 else
                                  Platform.runLater(()->cell8.setGraphic(imagecell8ViewO));
                                 break;
@@ -1219,7 +1218,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                 Platform.runLater(()->cell2.setGraphic(imagecell2ViewX));
                                 else
                                 Platform.runLater(()->cell2.setGraphic(imagecell2ViewO));
-                                break;        
+                                break;
                         case 3:
                                 if(mode=='X')
                                 Platform.runLater(()->cell3.setGraphic(imagecell3ViewX));
@@ -1238,7 +1237,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                 else
                                 Platform.runLater(()->cell5.setGraphic(imagecell5ViewO));
                                 break;
-                                
+
                          case 6:
                                  if(mode=='X')
                                 Platform.runLater(()->cell6.setGraphic(imagecell6ViewX));
@@ -1252,20 +1251,20 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                 Platform.runLater(()->cell7.setGraphic(imagecell7ViewO));
                                 break;
                     }
-        
+
     }
-    
+
     class StartGame extends Thread
     {
         StartGame()  {
-           start(); 
+           start();
         }
         @Override
         public void run()
         {
-             
+
             while(true)
-            { 
+            {
                     int data;
                   try {
                       data = dis.readInt();
@@ -1281,9 +1280,9 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                    s.setScene(new Scene(p2));
                                    s.show();
                                   System.exit(0);
-                                   
+
                                }
-                               ); 
+                               );
                            }
                            else
                            {
@@ -1295,19 +1294,19 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                    s.setScene(new Scene(p3));
                                    s.show();
                                   System.exit(0);
-                                   
+
                                }
-                               ); 
+                               );
                            }
-                      } 
-                      
+                      }
+
                       startGame.HoldPlace(data);
-                      
-                     
+
+
                            switch(data){
                         case 8:
                                 if(p.turn)
-                                Platform.runLater(()->cell8.setGraphic(imagecell8ViewX)); 
+                                Platform.runLater(()->cell8.setGraphic(imagecell8ViewX));
                                 else
                                  Platform.runLater(()->cell8.setGraphic(imagecell8ViewO));
                                 break;
@@ -1328,7 +1327,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                 Platform.runLater(()->cell2.setGraphic(imagecell2ViewX));
                                 else
                                 Platform.runLater(()->cell2.setGraphic(imagecell2ViewO));
-                                break;        
+                                break;
                         case 3:
                                if(p.turn)
                                 Platform.runLater(()->cell3.setGraphic(imagecell3ViewX));
@@ -1347,7 +1346,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                 else
                                 Platform.runLater(()->cell5.setGraphic(imagecell5ViewO));
                                 break;
-                                
+
                          case 6:
                                 if(p.turn)
                                 Platform.runLater(()->cell6.setGraphic(imagecell6ViewX));
@@ -1370,9 +1369,9 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                        System.out.println("oppenet winnner");
                                        break;
                                    }
-                                } 
+                                }
                                 else
-                                { 
+                                {
                                     startGame.player2.moves.add(data);
                                      if( startGame.CheckWinner(1))
                                    {
@@ -1382,8 +1381,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                    }
                                 }
                   p.turn=(p.turn)?false:true;
-                    p2.turn=(p2.turn)?false:true;         
-                } 
+                    p2.turn=(p2.turn)?false:true;
+                }
                    catch (IOException ex) {
                         if(p.turn)
                            {
@@ -1395,10 +1394,10 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                    p2.text.setText(p.name+" is offline ");
                                    s.setScene(new Scene(p2));
                                    s.show();
-                              
-                                  
+
+
                                }
-                               ); 
+                               );
                                break;
                            }
                            else
@@ -1411,17 +1410,17 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                    p3.text.setText(p2.name+" is offline ");
                                    s.setScene(new Scene(p3));
                                    s.show();
-                               
-                                 
-                                   
+
+
+
                                }
-                               ); 
+                               );
                             break;
                            }
                         }
             }
-        
-        
+
+
     }}
-  
+
 }

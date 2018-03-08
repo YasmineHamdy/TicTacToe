@@ -106,7 +106,7 @@ public class NamePageBase extends AnchorPane {
 
         textField.setLayoutX(230.0);
         textField.setLayoutY(200.0);
-        textField.setStyle("-fx-background-color: black; -fx-text-fill: yellow; -fx-font-size: 16;");
+        textField.setStyle("-fx-highlight-fill: -fx-accent;-fx-text-fill: yellow; -fx-font-size: 16;");
         textField.setFont(new Font("System Italic", 22.0));
 
         getChildren().add(text);

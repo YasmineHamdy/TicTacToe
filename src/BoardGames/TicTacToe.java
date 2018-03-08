@@ -10,9 +10,11 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
@@ -430,12 +432,11 @@ public class TicTacToe {
         }
     }
     
+    List<Integer> player1movesList = new ArrayList<Integer>();
+    List<Integer> player2movesList = new ArrayList<Integer>();
     public ReturnHandler takeTurns(){
         ReturnHandler r = new ReturnHandler();
         int [] player1moves;
-        List<Integer> player1movesList = new ArrayList<Integer>();
-        List<Integer> player2movesList = new ArrayList<Integer>();
-
         
         if (this.isGameStarted==false){
             this.whoGoFirst();
@@ -487,50 +488,64 @@ public class TicTacToe {
     
 
     public void isWinner(String turn){
-        ArrayList<Integer> moves =new ArrayList<>();  
-        outerloop:
-        for(int stone=0; stone<this.board.length; stone++){
-            if(this.board[stone]==turn){
-                moves.add(stone);
-                
-                for(int[]win:winningStates){
-                    int counter = 0;
-                    for(int j=0; j<win.length;j++){
-                       if(moves.contains(win[j])){
-                           counter++;
-                           if(counter==3){
-                               this.isWinner=true;
-                               break outerloop;
-                           }
-                           else{
-                                this.isWinner=false;
-                            } 
-                       }
-                    }
+        Set set1 = new HashSet(Arrays.asList(player1movesList));
+       Set set2 = new HashSet(Arrays.asList(player2movesList));
+       
+       ArrayList<Object> x = new ArrayList<Object>();
+       ArrayList<Object> y = new ArrayList<Object>();
+       ArrayList<Object> z = new ArrayList<Object>();
+
+        x.addAll(player1movesList);
+        y.addAll(player2movesList);
+        outterloop:
+        for(int[]win:winningStates){
+            for(int i : win){
+                z.add(i);
+            }
+            if(this.userPlayer.turn==turn){
+                int counter=0;
+                for (Object o : z) {
+                     if (!x.contains(o)) // an element in B is not in A!
+                        this.isWinner = false;
+                     else{
+                         counter++;
+                         if(counter==3){
+                            this.isWinner = true;
+                            this.winner = this.userPlayer.name;
+                            this.isGameEnded=true;
+                            break outterloop;
+                         }
+                     }
                 }
+                z.removeAll(z);
+            }
+            else if(this.userPlayer2.turn==turn){
+                int counter=0;
+                for (Object o : z) {
+                     if (!y.contains(o)) // an element in B is not in A!
+                        this.isWinner = false;
+                     else{
+                         counter++;
+                         if(counter==3){
+                            this.isWinner = true;
+                            this.winner = this.userPlayer2.name;
+                            this.isGameEnded=true;
+                            break outterloop;
+                         }
+                     }
+                }
+                z.removeAll(z);
             }
         }
         
-        if (this.isWinner==true){
-            if (turn.equals(this.userPlayer.turn)){
-                this.winner = this.userPlayer.name;
-                this.isGameEnded=true;
-                
-            }
-            else{
-                this.winner = this.userPlayer2.name;
-                this.isGameEnded=true;
-            }
-
-        }
-        else{
+        if(this.isWinner==false){
             int counter = 0;
-            for (String board1 : this.board) {
-                if (board1 == null ? this.empty != null : !board1.equals(this.empty)) {
+            for (int i=0;i<this.board.length;i++) {
+                if (this.board[i]=="x"||this.board[i]=="o"){
                     counter++;
                     if(counter==9){
                         this.winner="tie";
-                        this.isGameEnded=true;
+                        isGameEnded=true;
                     }
                 }
             }

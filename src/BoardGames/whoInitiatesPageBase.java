@@ -86,10 +86,11 @@ public class whoInitiatesPageBase extends AnchorPane {
         you.setLayoutX(150.0);
         you.setLayoutY(300.0);
         you.setPickOnBounds(true);
-        you.setPreserveRatio(true);
-//        you.setImage(new Image(getClass().getResource("../images/you.png").toExternalForm()));
-//          
-
+        File f3 = new File("./images/opponent.PNG");
+        Image img3 = new Image(f3.toURI().toString());
+        
+        you.setImage(img3);
+        you.setPickOnBounds(true);
 
         you.setOnMousePressed(e-> {
               try {
@@ -115,7 +116,7 @@ public class whoInitiatesPageBase extends AnchorPane {
             primaryStage.setScene(new Scene(p));
             
         });
-        File f2 = new File("./images/opponent.png");
+        File f2 = new File("./images/opponent.PNG");
         Image img2 = new Image(f2.toURI().toString());
         
         opponent.setImage(img2);
