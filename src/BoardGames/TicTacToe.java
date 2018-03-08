@@ -24,6 +24,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import jdk.nashorn.internal.ir.BreakNode;
 
 
@@ -104,6 +105,7 @@ class ReturnHandler {
 
 public class TicTacToe {
     Stage primaryStage;
+     DB.db db=new DB.db();
     TicTacToeGamePageBase startTTTGamePage = new TicTacToeGamePageBase(primaryStage,2,null,null);
     WinnerPageBase resultPage = new WinnerPageBase();
     
@@ -161,10 +163,11 @@ public class TicTacToe {
     
     public void run() {
         Player player1=new Player();   
+        Dummy dummy = new Dummy();
         Advanced advanced = new Advanced();
 
         Player2 player2=new Player2();
-        
+       
         NamePageBase namePage = new NamePageBase();
         NamePage2Base name2Page = new NamePage2Base();
         
@@ -185,7 +188,7 @@ public class TicTacToe {
                         
                         System.out.print("level no: "+Globals.level+"\n");
                         userPlayer=new User(player1, empty, empty);
-                        userPlayer2=new User(advanced, empty, empty);
+                        userPlayer2=new User(dummy, empty, empty);
                         userPlayer.name=Globals.name1;
                         userPlayer2.name=Globals.name2;
                         startTTTGamePage.player1Text.setText(userPlayer.name);
@@ -194,11 +197,7 @@ public class TicTacToe {
                         System.out.print("first player: "+userPlayer.name+"\n"+"second player: "+ userPlayer2.name+"\n");
 
                         ReturnHandler r = takeTurns();
-                        System.out.println("winnner is: "+r.getWinner()+"\n");
-                        System.out.println("player 1 name is: "+r.getplaye1Name()+"\n");
-                        System.out.println("player 2 name is: "+r.getplayer2Name()+"\n");
-                        System.out.println("player 1 moves: "+r.getplayer1Moves()+"\n");
-                        System.out.println("player 2 moves: "+r.getplayer2Moves()+"\n");
+                        Finish(r);
                         
                         for (int i = 0; i < 9; i++) {
                             System.out.print(r.getFinalBoard()[i] + "  ");
@@ -229,11 +228,7 @@ public class TicTacToe {
                         System.out.print("first player: "+userPlayer.name+"\n"+"second player: "+ userPlayer2.name+"\n");
 
                         ReturnHandler r = takeTurns();
-                        System.out.println("winnner is: "+r.getWinner()+"\n");
-                        System.out.println("player 1 name is: "+r.getplaye1Name()+"\n");
-                        System.out.println("player 2 name is: "+r.getplayer2Name()+"\n");
-                        System.out.println("player 1 moves: "+r.getplayer1Moves()+"\n");
-                        System.out.println("player 2 moves: "+r.getplayer2Moves()+"\n");
+                        Finish(r);
                         for (int i = 0; i < 9; i++) {
                             System.out.print(r.getFinalBoard()[i] + "  ");
                             if((i==2) || (i==5) || (i==8)){
@@ -262,11 +257,7 @@ public class TicTacToe {
                         System.out.print("first player: "+userPlayer.name+"\n"+"second player: "+ userPlayer2.name+"\n");
 
                         ReturnHandler r = takeTurns();
-                        System.out.println("winnner is: "+r.getWinner()+"\n");
-                        System.out.println("player 1 name is: "+r.getplaye1Name()+"\n");
-                        System.out.println("player 2 name is: "+r.getplayer2Name()+"\n");
-                        System.out.println("player 1 moves: "+r.getplayer1Moves()+"\n");
-                        System.out.println("player 2 moves: "+r.getplayer2Moves()+"\n");
+                         Finish(r);
                         
                         for (int i = 0; i < 9; i++) {
                             System.out.print(r.getFinalBoard()[i] + "  ");
@@ -300,11 +291,7 @@ public class TicTacToe {
                         System.out.print("first player: "+userPlayer.name+"\n"+"second player: "+ userPlayer2.name+"\n");
 
                         ReturnHandler r = takeTurns();
-                        System.out.println("winnner is: "+r.getWinner()+"\n");
-                        System.out.println("player 1 name is: "+r.getplaye1Name()+"\n");
-                        System.out.println("player 2 name is: "+r.getplayer2Name()+"\n");
-                        System.out.println("player 1 moves: "+r.getplayer1Moves()+"\n");
-                        System.out.println("player 2 moves: "+r.getplayer2Moves()+"\n");
+                        Finish(r);
 
                         for (int i = 0; i < 9; i++) {
                             System.out.print(r.getFinalBoard()[i] + "  ");
@@ -322,6 +309,7 @@ public class TicTacToe {
                     break;
                 }
         
+           
             default:
                 break;
         }
@@ -431,17 +419,20 @@ public class TicTacToe {
             }});
         }
     }
-    
     List<Integer> player1movesList = new ArrayList<Integer>();
     List<Integer> player2movesList = new ArrayList<Integer>();
+    
     public ReturnHandler takeTurns(){
         ReturnHandler r = new ReturnHandler();
         int [] player1moves;
+        
+
         
         if (this.isGameStarted==false){
             this.whoGoFirst();
         }
         while(this.isGameEnded==false){
+            System.out.println(isGameEnded);
             if(availableList.size()>0){
                 if (availableList.contains(removeNo)){
                     int x = availableList.indexOf(removeNo);
@@ -473,9 +464,6 @@ public class TicTacToe {
             }
             
         }
-        
-        
-        
         r.setFinalBoard(this.board);
         r.setWinner(this.winner);
         r.setplaye1Name(this.userPlayer.name);
@@ -485,10 +473,33 @@ public class TicTacToe {
         return r;
         
         }
-    
+     void Finish(ReturnHandler r)
+    {
+        
+        AskForStoreBase s=new AskForStoreBase();
+       Platform.runLater(()->{
+           Stage stage=new Stage();
+
+        stage.setScene(new Scene(s));
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.show();  
+          s.button0.setOnMousePressed(ev->{
+          Platform.runLater(()->{ stage.close();});
+
+          String[] row=new String[5];
+          row[0]=r.getplayer1Moves().toString();
+          row[1]=r.getplayer2Moves().toString();
+              System.out.println(row[0]);
+          row[2]=r.getplaye1Name();
+          row[3]=r.getplayer2Name();
+          row[4]=r.getWinner().equals("tie")?"no winner":r.getWinner();
+          db.write(row);
+       });
+       });
+    }
 
     public void isWinner(String turn){
-        Set set1 = new HashSet(Arrays.asList(player1movesList));
+       Set set1 = new HashSet(Arrays.asList(player1movesList));
        Set set2 = new HashSet(Arrays.asList(player2movesList));
        
        ArrayList<Object> x = new ArrayList<Object>();
@@ -546,6 +557,7 @@ public class TicTacToe {
                     if(counter==9){
                         this.winner="tie";
                         isGameEnded=true;
+                        break;
                     }
                 }
             }

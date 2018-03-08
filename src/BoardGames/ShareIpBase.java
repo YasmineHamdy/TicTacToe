@@ -145,7 +145,7 @@ public  class ShareIpBase extends AnchorPane {
      public void InServer()
     {
         try {
-            this.server = new ServerSocket(0,1,InetAddress.getByName( InetAddress.getLocalHost().getHostAddress()));
+            this.server = new ServerSocket(9999,1,InetAddress.getByName( InetAddress.getLocalHost().getHostAddress()));
            label2.setText(""+this.server.getLocalPort());
             new StartGame();
         } catch (UnknownHostException ex) {
@@ -167,7 +167,6 @@ public  class ShareIpBase extends AnchorPane {
                
                 Socket s=server.accept();
                 System.out.println("connection done");
-                
                  NetworkPlayer intiatePlayer=new NetworkPlayer(0,true,playerName,s);
                  DataOutputStream dos=new DataOutputStream(s.getOutputStream());
                  DataInputStream dis=new DataInputStream(s.getInputStream());

@@ -88,7 +88,7 @@ public class TicTacToeMenuPageBase extends AnchorPane {
         imageView.setLayoutY(24.0);
         imageView.setPickOnBounds(true);
         File f = new File("./images/tttmarqlrg.gif");
-        Image img = new Image(f.toURI().toString());
+        Image img = new Image("http://www.dsmsales.net/images/logos/tttmarqlrg.gif");
 
         imageView.setImage(img);
 
@@ -203,7 +203,7 @@ public class TicTacToeMenuPageBase extends AnchorPane {
                int[] moves2 = Arrays.stream(rows.get(no-1)[2].replace("[", "").replace("]", "").replace(" ", "").split(",")).mapToInt(Integer::parseInt).toArray();
                System.out.println(Arrays.toString(moves1));
                System.out.println(Arrays.toString(moves2));
-               new PlayGame (moves1,moves2);
+               new PlayGame (moves1,moves2,rows.get(no-1)[3],rows.get(no-1)[4]);
                
 //           System.out.println("Selected Value " + val);
                
@@ -236,11 +236,16 @@ public class TicTacToeMenuPageBase extends AnchorPane {
     {
         int [] moves1;
         int [] moves2;
-        TicTacToeGamePageBase board=new TicTacToeGamePageBase(null,5, null, null);;
-       PlayGame(int [] moves1,int [] moves2)
+        NetworkPlayer p,p1;
+        TicTacToeGamePageBase board;
+       
+       PlayGame(int [] moves1,int [] moves2,String player1,String player2)
        {
            this.moves1=moves1;
            this.moves2=moves2;
+           p=new NetworkPlayer(5, true, name, null);
+           p1=new NetworkPlayer(5, true, name, null);
+           board=new TicTacToeGamePageBase(null,5, p,p1);
            Platform.runLater(()->{
            Stage stage=new Stage();
          

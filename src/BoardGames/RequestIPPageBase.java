@@ -103,7 +103,7 @@ public class RequestIPPageBase extends AnchorPane {
         {   
             try {
                 //primaryStage.setScene(new Scene(new TicTacToeGamePageBase(1,null,textField.getText())));
-                 Socket s=new Socket(textField.getText(),Integer.parseInt(textField2.getText()));
+                 Socket s=new Socket(textField.getText(),9999);
                  NetworkPlayer player=new NetworkPlayer(1,false,PName,s);  
                  DataOutputStream dos=new DataOutputStream(s.getOutputStream());
                  DataInputStream dis=new DataInputStream(s.getInputStream());

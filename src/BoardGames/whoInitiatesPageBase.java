@@ -83,11 +83,11 @@ public class whoInitiatesPageBase extends AnchorPane {
         
         you.setFitHeight(107.0);
         you.setFitWidth(133.0);
-        you.setLayoutX(150.0);
+        you.setLayoutX(100.0);
         you.setLayoutY(300.0);
         you.setPickOnBounds(true);
         File f3 = new File("./images/opponent.PNG");
-        Image img3 = new Image(f3.toURI().toString());
+        Image img3 = new Image("https://www.mariowiki.com/images/thumb/6/6b/BMarioSluggers.PNG/215px-BMarioSluggers.PNG");
         
         you.setImage(img3);
         you.setPickOnBounds(true);

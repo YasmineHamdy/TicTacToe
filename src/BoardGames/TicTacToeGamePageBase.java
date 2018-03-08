@@ -28,6 +28,8 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public class TicTacToeGamePageBase extends AnchorPane {
 
@@ -77,6 +79,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
     protected final ImageView imagecell8ViewO;
     protected final ImageView imagecell8ViewX;
     protected final Label label8;
+    protected final ImageView FinishImage ;
 
     double xOffset = 0;
     double yOffset = 0;
@@ -95,7 +98,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
     public static boolean enabled = true;
     public static boolean firstTurn = false;
     public static boolean secondtTurn = false;
-
+    Image winner,loser,noWinner;
+   
     public TicTacToeGamePageBase(Stage primaryStage,int mode,PlayerInterface player,PlayerInterface player2) {
 
         label8 = new Label();
@@ -108,6 +112,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
         rowConstraints = new RowConstraints();
         rowConstraints0 = new RowConstraints();
         rowConstraints1 = new RowConstraints();
+       
         cell0 = new Label();
         cell1 = new Label();
         cell2 = new Label();
@@ -144,7 +149,9 @@ public class TicTacToeGamePageBase extends AnchorPane {
         imagecell7ViewO = new ImageView();
         imagecell8ViewX = new ImageView();
         imagecell8ViewO = new ImageView();
-
+        
+        FinishImage=new ImageView();
+        
         setId("AnchorPane");
         setPrefHeight(474.0);
         setPrefWidth(725.0);
@@ -240,7 +247,9 @@ public class TicTacToeGamePageBase extends AnchorPane {
         File fo = new File("./images/o.png");
         Image imgo = new Image(fo.toURI().toString());
         File fx = new File("./images/x.png");
-        Image imgx = new Image("http://icons.iconarchive.com/icons/double-j-design/origami-colored-pencil/128/blue-cross-icon.png");
+        Image imgx = new Image("http://www.clker.com/cliparts/U/J/s/I/3/P/red-x-icon-md.png");
+        
+        
         imagecell0ViewX.setFitHeight(80.0);
         imagecell0ViewX.setFitWidth(140.0);
         imagecell0ViewX.setImage(imgx);
@@ -312,6 +321,16 @@ public class TicTacToeGamePageBase extends AnchorPane {
         imagecell8ViewO.setFitHeight(80.0);
         imagecell8ViewO.setFitWidth(140.0);
         imagecell8ViewO.setImage(imgo);
+        
+        FinishImage.setFitHeight(200.0);
+        FinishImage.setFitWidth(500.0);
+        FinishImage.setX(20);
+        FinishImage.setY(200);
+      
+        winner = new Image(getClass().getResource("winner.gif").toString());
+        loser= new Image(getClass().getResource("loser.gif").toString());
+        noWinner= new Image(getClass().getResource("loser.gif").toString());
+        
 
         GridPane.setColumnIndex(cell0, 0);
         GridPane.setRowIndex(cell0, 0);
@@ -333,6 +352,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                    {
                                        this.startGame.Finish(0);
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                       getChildren().add(FinishImage);
                                        sg.stop();
                                    }
                                 }
@@ -342,6 +363,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -365,6 +388,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
@@ -375,6 +400,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -418,7 +445,10 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(0);
+                                       
                                        sg.stop();
                                    }
                                 }
@@ -428,6 +458,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -451,6 +483,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
@@ -461,6 +495,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -503,6 +539,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
@@ -513,6 +551,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -538,7 +578,9 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
                                        this.startGame.Finish(0);
+                                        getChildren().add(FinishImage);
                                        sg.stop();
                                    }
                                 }
@@ -548,6 +590,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -590,6 +634,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
@@ -600,6 +646,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -623,6 +671,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
@@ -633,6 +683,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -676,6 +728,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
@@ -686,6 +740,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -709,6 +765,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
@@ -719,6 +777,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -759,6 +819,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
@@ -769,6 +831,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -792,6 +856,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
@@ -802,6 +868,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -843,6 +911,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
@@ -853,6 +923,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -876,6 +948,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
@@ -886,6 +960,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -927,6 +1003,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
@@ -937,6 +1015,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -960,6 +1040,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
@@ -970,6 +1052,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -1011,6 +1095,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
@@ -1021,6 +1107,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -1044,6 +1132,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(0))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(0);
                                        sg.stop();
                                    }
@@ -1054,6 +1144,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        System.out.println("winnner");
+                                       FinishImage.setImage(winner);
+                                        getChildren().add(FinishImage);
                                        this.startGame.Finish(1);
                                        sg.stop();
                                    }
@@ -1173,6 +1265,11 @@ public class TicTacToeGamePageBase extends AnchorPane {
         player2Text.setText(startGame.player2.name);
             connect();
         }
+        if(mode==5)
+        {
+            player1Text.setText("");
+            player2Text.setText("");
+        }
     }
 
     public void connect()
@@ -1186,13 +1283,14 @@ public class TicTacToeGamePageBase extends AnchorPane {
               dis=new DataInputStream(p2.socket.getInputStream());
               dos=new DataOutputStream(p2.socket.getOutputStream());
             }
-            sg=new StartGame();
+            sg=new StartGame(this);
         } catch (IOException ex) {
             Logger.getLogger(TicTacToeGamePageBase.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
     }
+    
     public void putXOrO(int cellNo,char mode){
         switch(cellNo){
                         case 8:
@@ -1256,7 +1354,10 @@ public class TicTacToeGamePageBase extends AnchorPane {
 
     class StartGame extends Thread
     {
-        StartGame()  {
+        TicTacToeGamePageBase board;
+        StartGame(TicTacToeGamePageBase h)  {
+            this.board=new TicTacToeGamePageBase(null, 10, null,null);
+            this.board=h;
            start();
         }
         @Override
@@ -1367,6 +1468,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                    {
                                        startGame.Finish(0);
                                        System.out.println("oppenet winnner");
+                                       FinishImage.setImage(loser);
+                                  
                                        break;
                                    }
                                 }
@@ -1376,6 +1479,8 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                      if( startGame.CheckWinner(1))
                                    {
                                        startGame.Finish(1);
+                                       FinishImage.setImage(loser);
+                                 
                                        System.out.println(" oppenet winnner");
                                        break;
                                    }
@@ -1410,9 +1515,6 @@ public class TicTacToeGamePageBase extends AnchorPane {
                                    p3.text.setText(p2.name+" is offline ");
                                    s.setScene(new Scene(p3));
                                    s.show();
-
-
-
                                }
                                );
                             break;

@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Design.jar" size="779825" download="eager" />
+    <jar href="Design.jar" size="1777755" download="eager" />
     <jar href="lib/mariadb-java-client-2.2.1.jar" size="565641" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Design" >
