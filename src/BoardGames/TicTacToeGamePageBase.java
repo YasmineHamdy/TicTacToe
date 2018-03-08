@@ -97,7 +97,7 @@ public class TicTacToeGamePageBase extends AnchorPane {
     public static boolean secondtTurn = false;
     
     public TicTacToeGamePageBase(Stage primaryStage,int mode,PlayerInterface player,PlayerInterface player2) {
-            System.out.println(mode);
+        System.out.println(mode);
         
         label8 = new Label();
         exitButton = new Button();
@@ -200,12 +200,11 @@ public class TicTacToeGamePageBase extends AnchorPane {
         backButton.setEffect(colorAdjust);
 
         gridPane.setGridLinesVisible(true);
-        gridPane.setHgap(10.0);
         gridPane.setLayoutX(127.0);
         gridPane.setLayoutY(158.0);
         gridPane.setPrefHeight(266.0);
         gridPane.setPrefWidth(485.0);
-        gridPane.setVgap(10.0);
+        gridPane.setStyle("-fx-background-color: yellow;");
         
         
 
