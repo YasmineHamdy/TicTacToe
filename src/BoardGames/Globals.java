@@ -1,7 +1,6 @@
 
 package BoardGames;
 
-import DB.db;
 
 class Globals {
    public static int level;

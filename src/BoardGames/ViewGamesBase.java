@@ -43,8 +43,7 @@ public class ViewGamesBase extends AnchorPane {
        
         tableView.setEditable(true);
         scrollPane.setContent(tableView);
-       
-       
+
         
         getChildren().add(scrollPane);
 

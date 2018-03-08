@@ -5,7 +5,11 @@ import BoardGames.Player2;
 import BoardGames.Player;
 import BoardGames.NetworkPlayer;
 import BoardGames.Computer;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -105,7 +109,7 @@ class ReturnHandler {
 
 public class TicTacToe {
     Stage primaryStage;
-     DB.db db=new DB.db();
+     
     TicTacToeGamePageBase startTTTGamePage = new TicTacToeGamePageBase(primaryStage,2,null,null);
     WinnerPageBase resultPage = new WinnerPageBase();
     
@@ -493,7 +497,24 @@ public class TicTacToe {
           row[2]=r.getplaye1Name();
           row[3]=r.getplayer2Name();
           row[4]=r.getWinner().equals("tie")?"no winner":r.getWinner();
-          db.write(row);
+          try(FileWriter fw = new FileWriter("myGames.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+        PrintWriter out = new PrintWriter(bw))
+        {
+            out.println("{");
+            
+            out.print(row[0]+";");
+            out.print(row[1]+";");
+            out.print(row[2]+";");
+            out.print(row[3]+";");
+            out.println(row[4]);
+            
+            out.println("}");
+            //more code
+        } catch (IOException e) {
+            //exception handling left as an exercise for the reader
+                    System.out.println("error");
+        }
        });
        });
     }

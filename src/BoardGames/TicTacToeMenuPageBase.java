@@ -1,6 +1,5 @@
 package BoardGames;
 
-import DB.db;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -60,7 +59,6 @@ public class TicTacToeMenuPageBase extends AnchorPane {
         backButton = new Button();
         button3 = new Button();
         colorAdjust3 = new ColorAdjust();
-        DB.db db=new DB.db();
         
         setId("AnchorPane");
         setPrefHeight(474.0);
@@ -156,38 +154,38 @@ public class TicTacToeMenuPageBase extends AnchorPane {
         String line = null;
         ArrayList <String> games=new ArrayList<String>();
         String ob=new String();
-//        try {
-//            FileReader fileReader =new FileReader(fileName);
-//            BufferedReader bufferedReader =new BufferedReader(fileReader);
+        try {
+            FileReader fileReader =new FileReader(fileName);
+            BufferedReader bufferedReader =new BufferedReader(fileReader);
           
-//            while((line = bufferedReader.readLine()) != null) {
-//                if(line.equals("{"))
-//                {
-//                    ob="";
-//                }
-//                else if(!line.equals("}") )
-//               {
-////                   System.out.println(line);
-//                 ob=ob.concat(line);
-//                
-//               }
-//                else if(line.equals("}"))
-//                {
-//                    
-//                    games.add(ob);
-//                }
-//              
-//                
-//            }   
-            Collection<String> list =new ArrayList<>();
-             ArrayList<String[]> rows=db.read();
-             for(int i=0;i<rows.size();i++){
-                      list.add(rows.get(i)[0]+"."+rows.get(i)[3]+" VS "+rows.get(i)[4]);
-                   }
+            while((line = bufferedReader.readLine()) != null) {
+                if(line.equals("{"))
+                {
+                    ob="";
+                }
+                else if(!line.equals("}") )
+               {
+                 ob=ob.concat(line);
+                
+               }
+                else if(line.equals("}"))
+                {
+                    
+                    games.add(ob);
+                }
+              
+                
+            }   
+          
     ObservableList<ObservableList<String>> csvData = FXCollections.observableArrayList();
              Platform.runLater(()->{
                    Stage stage=new Stage();
                 
+                  Collection<String> list =new ArrayList<>();
+                   for(int i=0;i<games.size();i++)
+                   {
+                      list.add((i+1)+"."+games.get(i).split(";")[2]+" VS "+games.get(i).split(";")[3]);
+                   }
               ObservableList<String> details = FXCollections.observableArrayList(list);
                ViewGamesBase vg=new ViewGamesBase();
                vg.tableView.setItems(details);
@@ -198,29 +196,25 @@ public class TicTacToeMenuPageBase extends AnchorPane {
                String val = tablePosition.getTableColumn().getCellData(newSelection).toString();
           
                int no=Integer.parseInt(val.substring(0,1));
-//             System.out.println(no);
-               int[] moves1 = Arrays.stream(rows.get(no-1)[1].replace("[", "").replace("]", "").replace(" ", "").split(",")).mapToInt(Integer::parseInt).toArray();
-               int[] moves2 = Arrays.stream(rows.get(no-1)[2].replace("[", "").replace("]", "").replace(" ", "").split(",")).mapToInt(Integer::parseInt).toArray();
-               System.out.println(Arrays.toString(moves1));
-               System.out.println(Arrays.toString(moves2));
-               new PlayGame (moves1,moves2,rows.get(no-1)[3],rows.get(no-1)[4]);
-               
-//           System.out.println("Selected Value " + val);
-               
+               String[] PlayedGame=games.get(no-1).split(";");
+               int[] moves1 = Arrays.stream(PlayedGame[0].replace("[", "").replace("]", "").replace(" ", "").split(",")).mapToInt(Integer::parseInt).toArray();
+               int[] moves2 = Arrays.stream(PlayedGame[1].replace("[", "").replace("]", "").replace(" ", "").split(",")).mapToInt(Integer::parseInt).toArray();
+               new PlayGame (moves1,moves2,PlayedGame[2],PlayedGame[3]);
+           System.out.println("Selected Value " + val);
             });
                 Scene scene = new Scene(vg);
                    stage.setScene(scene);
                    
                    stage.show();
                 });
-//          bufferedReader.close();         
-//        }
-//        catch(FileNotFoundException ex) {
-//            System.out.println("Unable to open file '" + fileName + "'");                
-//        }
-//        catch(IOException ex) {
-//            System.out.println("Error reading file '" + fileName + "'");                  
-//        }
+          bufferedReader.close();         
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println("Unable to open file '" + fileName + "'");                
+        }
+        catch(IOException ex) {
+            System.out.println("Error reading file '" + fileName + "'");                  
+        }
         
         });
         getChildren().add(pcButton);
